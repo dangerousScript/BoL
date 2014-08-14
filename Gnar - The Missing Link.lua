@@ -56,7 +56,7 @@ if lib_downloadNeeded then return end
 
 local script_downloadName = "Gnar - The Missing Link"
 local script_downloadHost = "raw.github.com"
-local script_downloadPath = "/RoachxD/BoL_Scripts/master/Gnar%20-%20The%20Missing%20Link.lua" .. "?rand=" .. math.random(1, 10000)
+local script_downloadPath = "/janja96/BoL/master/Gnar%20-%20The%20Missing%20Link.lua" .. "?rand=" .. math.random(1, 10000)
 local script_downloadUrl = "https://" .. script_downloadHost .. script_downloadPath
 local script_filePath = SCRIPT_PATH .. GetCurrentEnv().FILE_NAME .. ".lua"
 
