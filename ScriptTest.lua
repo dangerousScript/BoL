@@ -11,3 +11,7 @@ Changelogs:
 if myHero.charName ~= "Ashe" then return end
 
 local version = 0.10
+local AUTOUPDATE = true
+
+
+
