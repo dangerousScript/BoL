@@ -15,12 +15,23 @@ Changelogs:
         Something more when i learn
 ]]--
 
-if myHero.charName ~= "Ashe" then return end
-
 local version = 0.10
 local AUTOUPDATE = true
 
+-- Get our champion
+myHero = GetMyHero()
 
+function OnTick()
+        if (myHero.health < 200) then
+                PrintChat("Warning: LOW HP! Drink a potion!"
+        end
+end
+
+function OnDraw()
+        if (myHero.mana < 200) then
+                DrawText("text", TextSize, X, Y, HexColor)
+        end
+end
 
 
 
