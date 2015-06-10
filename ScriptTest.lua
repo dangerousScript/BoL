@@ -8,6 +8,7 @@ Changelogs:
         0.10 - Added 13 lines of code !!!!!!! FUCK YEAH!
         0.11 - I WANNA LEARN TO SCRIPT FOR BoL 1 & BoL 2 !!!!
         0.12 - Drawings added 
+        0.13 - Welcome message
         
  TODO:
         Spell cast
@@ -15,8 +16,15 @@ Changelogs:
         Something more when i learn
 ]]--
 
-local version = 0.12
+local version = 0.13
 local AUTOUPDATE = true
+
+user = GetUser()
+
+function OnLoad()
+        -- PrintChat("<font color='#0000FF'> >> Kha'zix - The Voidreaver 1.2.3 Loaded!! <<</font>")
+        PrintChat("<font color='#FF0033'> Welcome: </font> " .. <font>user</font>)
+end
 
 -- Get our champion
 myHero = GetMyHero()
