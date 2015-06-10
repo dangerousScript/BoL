@@ -23,7 +23,7 @@ user = GetUser()
 
 function OnLoad()
         -- PrintChat("<font color='#0000FF'> >> Kha'zix - The Voidreaver 1.2.3 Loaded!! <<</font>")
-        PrintChat("<font color='#FF0033'> Welcome: </font> " .. <font>user</font>)
+        PrintChat("<font color='#FF0033'> Welcome: </font> " .. "<font color='#00CC00'>" .. user .. "</font>")
 end
 
 -- Get our champion
