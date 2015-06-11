@@ -26,7 +26,7 @@ local script_downloadPath = "/janja96/BoL/master/ScriptTest.lua" .. "?rand=" .. 
 local script_downloadUrl = "https://" .. script_downloadHost .. script_downloadPath
 local script_filePath = SCRIPT_PATH .. GetCurrentEnv().FILE_NAME
 
-unction script_Messager(msg) print("<font color=\"#FF0000\">" .. script_downloadName .. ":</font> <font color=\"#FFFFFF\">" .. msg .. ".</font>") end
+function script_Messager(msg) print("<font color=\"#FF0000\">" .. script_downloadName .. ":</font> <font color=\"#FFFFFF\">" .. msg .. ".</font>") end
 
 if _G.Script_Autoupdate then
 	local script_webResult = GetWebResult(script_downloadHost, script_downloadPath)
