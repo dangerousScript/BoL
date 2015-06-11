@@ -16,15 +16,16 @@ Changelogs:
         Something more when i learn
 ]]--
 
-local version = 0.13
+local version = 0.14
 local AUTOUPDATE = true
 
 -- / Auto-Update Function / --
-local script_downloadName = "Katarina - The Sinister Blade"
+local script_downloadName = "ScriptTest"
 local script_downloadHost = "raw.github.com"
-local script_downloadPath = "/UglyOldGuy/BoL/master/Katarina%20-%20The%20Sinister%20Blade.lua" .. "?rand=" .. math.random(1, 10000)
+local script_downloadPath = "/janja96/BoL/master/ScriptTest.lua" .. "?rand=" .. math.random(1, 10000)
 local script_downloadUrl = "https://" .. script_downloadHost .. script_downloadPath
 local script_filePath = SCRIPT_PATH .. GetCurrentEnv().FILE_NAME
+
 -- get username
 user = GetUser()
 -- Get our champion
