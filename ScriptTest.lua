@@ -1,4 +1,4 @@
-local version = "0.17"
+local version = "0.18"
 --[[
         This is my frist script 
         But who cares about fucking comments :O
