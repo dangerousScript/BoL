@@ -10,6 +10,7 @@ Changelogs:
         0.11 - I WANNA LEARN TO SCRIPT FOR BoL 1 & BoL 2 !!!!
         0.12 - Drawings added 
         0.13 - Welcome message
+        0.19 - Autoupdater added
         
  TODO:
         Spell cast
