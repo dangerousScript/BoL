@@ -1,3 +1,4 @@
+local version = "0.16"
 --[[
         This is my frist script 
         But who cares about fucking comments :O
@@ -16,7 +17,6 @@ Changelogs:
         Something more when i learn
 ]]--
 
-local version = "0.15"
 _G.Script_Autoupdate = true
 
 -- / Auto-Update Function / --
