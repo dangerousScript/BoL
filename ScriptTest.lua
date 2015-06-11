@@ -16,7 +16,7 @@ Changelogs:
         Something more when i learn
 ]]--
 
-local version = 0.14
+local version = 0.15
 local AUTOUPDATE = true
 
 -- / Auto-Update Function / --
@@ -33,7 +33,6 @@ myHero = GetMyHero()
 function OnLoad()
         -- PrintChat("<font color='#0000FF'> >> Kha'zix - The Voidreaver 1.2.3 Loaded!! <<</font>")
         PrintChat("<font color='#FF0033'> Welcome: </font> " .. "<font color='#00CC00'>" .. user .. "</font>")
-        PrintChat("<font color='#FF9900'> You are playing: </font>" .. "<font color='#CC3399'" .. myHero .. "</font>")
 end
 
 function OnTick()
