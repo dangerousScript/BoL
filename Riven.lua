@@ -1,4 +1,4 @@
-local version = "0.19"
+local version = "0.20"
 --[[
         This is my frist script 
         But who cares about fucking comments :O
@@ -18,9 +18,12 @@ Changelogs:
         Something more when i learn
 ]]--
 
+
+
 _G.Script_Autoupdate = true
 
--- / Auto-Update Function / --
+
+-- / Auto-Update Function Start/ --
 local script_downloadName = "ScriptTest"
 local script_downloadHost = "raw.github.com"
 local script_downloadPath = "/janja96/BoL/master/ScriptTest.lua" .. "?rand=" .. math.random(1, 10000)
@@ -45,7 +48,7 @@ if _G.Script_Autoupdate then
 			if tonumber(version) < script_serverVersion then
 				script_Messager("New version available: " .. script_serverVersion)
 				script_Messager("Updating, please don't press F9")
-				DelayAction(function () DownloadFile(script_downloadUrl, script_filePath, function() script_Messager("Successfully updated the script, please reload!") end) end, 2)
+				DelayAction(function () DownloadFile(script_downloadUrl, script_filePath, function() script_Messager("Successfully updated the script, please reload! 2x F9") end) end, 2)
 			else
 				script_Messager("You've got the latest version: " .. script_serverVersion)
 			end
@@ -54,6 +57,8 @@ if _G.Script_Autoupdate then
 		script_Messager("Error downloading server version!")
 	end
 end
+-- / Auto-Update Function End/ --
+
 
 -- get username
 user = GetUser()
@@ -78,6 +83,5 @@ function OnDraw()
                 DrawText("Warning: LOW MANA! Drink blue potion!", 18, 100, 100, 0x0000FF)
         end
 end
-
 
 
