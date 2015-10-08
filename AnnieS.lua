@@ -62,7 +62,7 @@ local AUTOUPDATE = true
 local SCRIPT_NAME = "AnnieS"
 
 if AUTOUPDATE then
-	SourceUpdater(SCRIPT_NAME, version, "raw.github.com", "janja96/BoL/blob/master/"..SCRIPT_NAME..".lua", SCRIPT_PATH .. GetCurrentEnv().FILE_NAME, "/janja96/BoL/tree/master/Versions/"..SCRIPT_NAME..".version"):CheckUpdate()
+	SourceUpdater(SCRIPT_NAME, version, "raw.github.com", "/janja96/BoL/master/"..SCRIPT_NAME..".lua", SCRIPT_PATH .. GetCurrentEnv().FILE_NAME, "/janja96/BoL/master/Versions"..SCRIPT_NAME..".version"):CheckUpdate()
 end
 
 -- Execute only at start of the game
