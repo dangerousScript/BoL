@@ -1,4 +1,4 @@
-local Version = "1.32"
+local Version = "0.22"
 --[[
 	Changelogs:
 		-0.10:
@@ -15,7 +15,7 @@ local Version = "1.32"
 if myHero.charName ~= "Annie" then return end
 
 
-
+--[[
 _G.Annie_Autoupdate = true
 
 
@@ -55,9 +55,15 @@ if _G.Annie_Autoupdate then
 	end
 end
 -- / Auto-Update Function / --
-
+]]
 
 local ts 
+local AUTOUPDATE = true
+local SCRIPT_NAME = "AnnieS"
+
+if AUTOUPDATE then
+	SourceUpdater(SCRIPT_NAME, version, "raw.github.com", "janja96/BoL/blob/master/"..SCRIPT_NAME..".lua", SCRIPT_PATH .. GetCurrentEnv().FILE_NAME, "/janja96/BoL/tree/master/Versions/"..SCRIPT_NAME..".version"):CheckUpdate()
+end
 
 -- Execute only at start of the game
 function OnLoad()
