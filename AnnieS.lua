@@ -1,4 +1,4 @@
-local Version = "0.32"
+local Version = "1.32"
 --[[
 	Changelogs:
 		-0.10:
