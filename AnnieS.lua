@@ -1,4 +1,4 @@
-local Version = "0.23"
+local Version = "0.22"
 --[[
 	Changelogs:
 		-0.10:
@@ -15,14 +15,13 @@ local Version = "0.23"
 if myHero.charName ~= "Annie" then return end
 
 
---[[
 _G.Annie_Autoupdate = true
 
 
 -- / Auto-Update Function / --
 local script_downloadName = "AnnieS"
 local script_downloadHost = "raw.github.com"
-local script_downloadPath = "/janja96/BoL/blob/master/AnnieS.lua" .. "?rand=" .. math.random(1, 10000)
+local script_downloadPath = "/janja96/BoL/master/AnnieS.lua" .. "?rand=" .. math.random(1, 10000)
 local script_downloadUrl = "https://" .. script_downloadHost .. script_downloadPath
 local script_filePath = SCRIPT_PATH .. GetCurrentEnv().FILE_NAME
 
@@ -55,15 +54,9 @@ if _G.Annie_Autoupdate then
 	end
 end
 -- / Auto-Update Function / --
-]]
+
 
 local ts 
-local AUTOUPDATE = true
-local SCRIPT_NAME = "AnnieS"
-
-if AUTOUPDATE then
-	SourceUpdater(SCRIPT_NAME, version, "raw.github.com", "/janja96/BoL/master/"..SCRIPT_NAME..".lua", SCRIPT_PATH .. GetCurrentEnv().FILE_NAME, "/janja96/BoL/master/Versions"..SCRIPT_NAME..".version"):CheckUpdate()
-end
 
 -- Execute only at start of the game
 function OnLoad()
