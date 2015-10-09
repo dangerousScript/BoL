@@ -1,4 +1,4 @@
-local Version = "0.25"
+local Version = "0.26"
 --[[
 	Changelogs:
 		-0.10:
@@ -6,23 +6,25 @@ local Version = "0.25"
 			Cast Q,W,E,R as combo
 			Draw range for Q
 			Print Low Health
-		-0.25: (NOT YET UPDATED)
-			Improve W - smanjiti range 640-600
+		-0.26:
+			Added champion name check
+			Improve W - smanjiti range 630
 			Add Autoupdate function
+			Menu update
 ]]
 
 -- Hero name check
 if myHero.charName ~= "Annie" then return end
 
 -- / Auto Update Function / --
-local sVersion = '0.25';
+local sVersion = '0.26';
 local rVersion = GetWebResult('raw.githubusercontent.com', '/janja96/BoL/master/Versions/AnnieS.version?no-cache=' .. math.random(1, 25000));
 
 if ((rVersion) and (tonumber(rVersion) ~= nil)) then
 	if (tonumber(sVersion) < tonumber(rVersion)) then
 		print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#FFFF00">An update has been found and it is now downloading!</font>');
 		DownloadFile('https://raw.githubusercontent.com/janja96/BoL/master/AnnieS.lua?no-cache=' .. math.random(1, 25000), (SCRIPT_PATH.. GetCurrentEnv().FILE_NAME), function()
-			print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#00FF00">Script has been updated, please reload!</font>');
+			print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#00FF00">Script has been updated, please reload! 2x F9</font>');
 		end);
 		return;
 	end;
