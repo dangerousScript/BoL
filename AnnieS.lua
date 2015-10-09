@@ -1,4 +1,4 @@
-local Version = "0.25"
+local Version = "0.24"
 --[[
 	Changelogs:
 		-0.10:
@@ -6,7 +6,7 @@ local Version = "0.25"
 			Cast Q,W,E,R as combo
 			Draw range for Q
 			Print Low Health
-		-0.11: (NOT YET UPDATED)
+		-0.25: (NOT YET UPDATED)
 			Improve W - smanjiti range 640-600
 			Add Autoupdate function
 ]]
@@ -15,6 +15,7 @@ local Version = "0.25"
 if myHero.charName ~= "Annie" then return end
 
 
+--[[
 _G.Annie_Autoupdate = true
 
 
@@ -54,7 +55,27 @@ if _G.Annie_Autoupdate then
 	end
 end
 -- / Auto-Update Function / --
+]]
 
+-- / Auto Update Function / --
+local sVersion = '0.24';
+local rVersion = GetWebResult('raw.githubusercontent.com', '/janja96/BoL/master/Versions/AnnieS.version?no-cache=' .. math.random(1, 25000));
+
+if ((rVersion) and (tonumber(rVersion) ~= nil)) then
+	if (tonumber(sVersion) < tonumber(rVersion)) then
+		print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#FFFF00">An update has been found and it is now downloading!</font>');
+		DownloadFile('https://raw.githubusercontent.com/janja96/BoL/master/AnnieS.lua?no-cache=' .. math.random(1, 25000), (SCRIPT_PATH.. GetCurrentEnv().FILE_NAME), function()
+			print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#00FF00">Script has been updated, please reload!</font>');
+		end);
+		return;
+	end;
+	if (tonumber(sVersion) == tonumber(rVersion)) then
+		print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#FF0000">You are using the latest version!</font>');
+	end;
+	else
+		print('<font color="#FF1493"><b>[AnnieS]:</b> </font><font color="#FF0000">Update Error</font>');
+	end;
+-- / Auto Update Function / --
 
 local ts 
 
