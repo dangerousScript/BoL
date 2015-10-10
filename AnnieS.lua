@@ -1,6 +1,6 @@
-local Version = "0.26"
+local Version = "0.27"
 --[[
-	Changelogs:
+	Changelogs: [BETA]
 		-0.10:
 			Menu added
 			Cast Q,W,E,R as combo
@@ -8,16 +8,26 @@ local Version = "0.26"
 			Print Low Health
 		-0.26:
 			Added champion name check
-			Improve W - smanjiti range 630
+			Improved W - smanjiti range 630
 			Add Autoupdate function
-			Menu update
-]]
+			Menu updated
+
+		-0.27:
+			New menu options
+			Harass
+			Draw W,R,Q
+			permaShow added
+		-0.28:	
+			Auto R for X enemy
+			last hit Q
+			Move to mouse / orbwalk
+]]	
 
 -- Hero name check
 if myHero.charName ~= "Annie" then return end
 
 -- / Auto Update Function / --
-local sVersion = '0.26';
+local sVersion = '0.27';
 local rVersion = GetWebResult('raw.githubusercontent.com', '/janja96/BoL/master/Versions/AnnieS.version?no-cache=' .. math.random(1, 25000));
 
 if ((rVersion) and (tonumber(rVersion) ~= nil)) then
@@ -41,17 +51,31 @@ local ts
 -- Execute only at start of the game
 function OnLoad()
 	-- Menu
-	Config = scriptConfig("AnnieS", "AnnieSave")
+	AnnieS = scriptConfig("AnnieS", "AnnieSave")
 	-- draw menu
-	Config:addSubMenu("["..myHero.charName.."] - Draw", "draw")
-		Config.draw:addParam("drawCircle", "Draw Circle", SCRIPT_PARAM_ONOFF, true)
-		Config.draw:addParam("printHp", "Print Health warning", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("A"))
+	AnnieS:addSubMenu("["..myHero.charName.."] - Draw", "draw")
+		AnnieS.draw:addParam("drawQ", "Draw Q range: ", SCRIPT_PARAM_ONOFF, true)
+		AnnieS.draw:addParam("drawW", "Draw W range: ", SCRIPT_PARAM_ONOFF, true)
+		AnnieS.draw:addParam("drawR", "Draw R range: ", SCRIPT_PARAM_ONOFF, true)
+		AnnieS.draw:addParam("printHp", "Print Health warning", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("A"))
 	-- combo menu
-	Config:addSubMenu("["..myHero.charName.."] - Combo", "combo")
-		Config.combo:addParam("combo", "Combo mode", SCRIPT_PARAM_ONKEYDOWN, false, 32)
+	AnnieS:addSubMenu("["..myHero.charName.."] - Combo", "comboR")
+		AnnieS.comboR:addParam("combo", "Combo mode", SCRIPT_PARAM_ONKEYDOWN, false, 32)
+		AnnieS.comboR:permaShow("combo")
+	-- harass
+	AnnieS:addSubMenu("["..myHero.charName.."] - Harass", "harass")
+		AnnieS.harass:addParam("harassT", "Harass:", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("T"))
+		AnnieS.harass:permaShow("harassT")
+	-- last hit Q
+	AnnieS:addSubMenu("["..myHero.charName.."] - Last hit", "lasthit")
+		AnnieS.lasthit:addParam("lasthitQ", "Last hit Q:", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("K"))
+	
+	-- auto R for x enemys
+	AnnieS:addSubMenu("["..myHero.charName.."] - Auto Ult", "auto")
+		AnnieS.auto:addParam("autoR", "Auto R on X enemys:", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("M"))
 
 	-- menu version
-	Config:addParam("version", "Version: " .. Version, SCRIPT_PARAM_ONOFF, true)
+	AnnieS:addParam("version", "Version: " .. Version, SCRIPT_PARAM_ONOFF, true)
  
  
 	-- We create a target selector
@@ -69,7 +93,7 @@ function OnTick()
 	if (ts.target ~= nil) then
  
 		-- Spacebar pressed ?
-		if (Config.combo) then
+		if (AnnieS.comboR.combo) then
 			-- Can we cast Q ?
 			if (myHero:CanUseSpell(_Q) == READY) then
 				-- Cast spell on enemy
@@ -93,18 +117,34 @@ function OnTick()
 			end
 		end
 		
+		-- Harass mode
+		if (AnnieS.harass.harassT) then
+			if (myHero:CanUseSpell(_Q) == READY) then
+				CastSpell(_Q, ts.target)
+			end
+			if (myHero:CanUseSpell(_W) == READY) then
+				CastSpell(_W, ts.target.x, ts.target.z)
+			end
+		end
+
 	end
 end
  
 -- Drawing graphics
 function OnDraw()
 	--Draw circles only if activated on menu
-	if (Config.drawCircle) then
+	if (AnnieS.draw.drawQ) then
 		DrawCircle(myHero.x, myHero.y, myHero.z, 630, 0x111111)
+	end
+	if (AnnieS.draw.drawW) then
+		DrawCircle(myHero.x, myHero.y, myHero.z, 650, 0xFFFF00)
+	end
+	if (AnnieS.draw.drawR) then
+		DrawCircle(myHero.x, myHero.y, myHero.z, 600, 0xFF6600)
 	end
 	
 	-- Show HP warning
-	if (Config.printHp) then
+	if (AnnieS.draw.printHp) then
 		if (myHero.health < 200) then
 			DrawText("Warning: LOW HP! Drink a potion!", 18, 100, 100, 0xFFFFFF00)
 		end
