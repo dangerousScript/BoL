@@ -7,7 +7,7 @@ if myHero.charName ~= "Brand" then return end  -- promeni u Zed
 local AutoUpdate = true
 
 -- promenljive za update --
-local scriptVersion = 0.10
+local scriptVersion = 0.11
 local StridePage = 'raw.githubusercontent.com'
 local ScriptLink = '/janja96/BoL/blob/master/Zed.lua'
 local VresionLink = '/janja96/BoL/master/Versions/Zed.version?no-cache=' .. math.random(1, 25000)
