@@ -3,7 +3,9 @@
 --========================--
 if myHero.charName ~= "Brand" then return end  -- promeni u Zed
 
-local version = 0.02
+local sVersion = '0.01';
+local rVersion = GetWebResult('raw.githubusercontent.com', '/janja96/BoL/master/Versions/Zed.version?no-cache=' .. math.random(1, 25000));
+
 
 -- VPrediction
 if FileExist(LIB_PATH .. "/VPrediction.lua") then
@@ -29,10 +31,31 @@ end
 
 
 function OnLoad()
-  AutoUpdater()
+  --AutoUpdater()
+  Update()
 end
 
--- Update --
+
+function Update()
+  -- / Auto Update Function / --
+  if ((rVersion) and (tonumber(rVersion) ~= nil)) then
+  	if (tonumber(sVersion) < tonumber(rVersion)) then
+  		print('<font color="#FF1493"><b>[Zed]:</b> </font><font color="#FFFF00">An update has been found and it is now downloading!</font>');
+  		DownloadFile('https://raw.githubusercontent.com/janja96/BoL/master/Zed.lua?no-cache=' .. math.random(1, 25000), (SCRIPT_PATH.. GetCurrentEnv().FILE_NAME), function()
+  			print('<font color="#FF1493"><b>[Zed]:</b> </font><font color="#00FF00">Script has been updated, please reload! 2x F9</font>');
+  		end);
+  		return;
+  	end;
+  	if (tonumber(sVersion) == tonumber(rVersion)) then
+  		print('<font color="#FF1493"><b>[Zed]:</b> </font><font color="#FF0000">You are using the latest version!</font>');
+  	end;
+  	else
+  		print('<font color="#FF1493"><b>[Zed]:</b> </font><font color="#FF0000">Update Error</font>');
+  	end;
+  -- / Auto Update Function / --
+end
+
+--[[ update
 function AutoUpdater()
 	local AUTOUPDATE = true
 	if(AUTOUPDATE) then
@@ -57,7 +80,7 @@ function AutoUpdater()
 		end
 	end
 end
-
+]]
 
 
 --Update--
