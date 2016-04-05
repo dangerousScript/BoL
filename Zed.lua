@@ -3,7 +3,7 @@
 --========================--
 if myHero.charName ~= "Brand" then return end  -- promeni u Zed
 
-local version = 0.01
+local version = 0.02
 
 -- VPrediction
 if FileExist(LIB_PATH .. "/VPrediction.lua") then
