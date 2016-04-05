@@ -3,6 +3,8 @@
 --========================--
 if myHero.charName ~= "Brand" then return end  -- promeni u Zed
 
+local version = 0.01
+
 -- VPrediction
 if FileExist(LIB_PATH .. "/VPrediction.lua") then
   require("VPrediction")
@@ -27,7 +29,7 @@ end
 
 
 function OnLoad()
-  Update()
+  AutoUpdater()
 end
 
 -- Update --
