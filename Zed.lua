@@ -1,7 +1,7 @@
 --========================--
 -- Zed : Master of Shadow --
 --========================--
-if myHero.charName ~= "Brand" then return end  -- promeni u Zed
+if myHero.charName ~= "Zed" then return end  -- promeni u Zed
 
 local sVersion = '0.021'
 local rVersion = GetWebResult('raw.githubusercontent.com', '/janja96/BoL/master/Versions/Zed.version?no-cache=' .. math.random(1, 25000))
