@@ -79,7 +79,7 @@ function Update:RequireUpdate()
   end
 end
 
-function Upadte:Check()
+function Update:Check()
   if self.RequireUpdate() then
     DownloadFile(self.DownloadPath, self.SavePath,
     function()
